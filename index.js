@@ -490,7 +490,7 @@ async function updateState(updater) {
   updateQueue = updateQueue.then(task);
   return updateQueue;
 }
-`nasync function updateRole(roleId, updater) {
+async function updateRole(roleId, updater) {
   return updateState(async state => ({
     ...state,
     roles: await Promise.all(state.roles.map(async role => (role.id === roleId ? normalizeRole(await updater(role)) : role))),
